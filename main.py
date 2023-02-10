@@ -15,7 +15,8 @@ class Example(QWidget):
         self.initUI()
 
     def getImage(self):
-        map_request = f"https://static-maps.yandex.ru/1.x/?ll={float(input())},{float(input())}&spn=0.002,0.002&l=map"
+        x, y = map(float, input().split(','))
+        map_request = f"http://static-maps.yandex.ru/1.x/?ll={y},{x}&z=12&size=600,450&spn=0.002,0.002&l=map"
         response = requests.get(map_request)
 
         if not response:
